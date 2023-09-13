@@ -63,7 +63,43 @@ section {
 
 /* ---- Module Rules ---- */
 
+/* Navbar Styles */
+#navbar__list li {
+    list-style-type: none;
+    margin: 10px;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#navbar__list li:hover {
+    background-color: #555;
+    cursor: pointer;
+}
+
 /* Navigation Styles*/
+
+
+.active-nav {
+    background-color: #555; 
+    color: #fff;            
+    border: 2px solid #fff;  
+    border-radius: 5px;    
+    font-weight: bold;    
+}
+
+#navbar__list li {
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+.navbar__menu {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10; /* Ensure it's above other content */
+}
+
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
@@ -218,3 +254,35 @@ section.your-active-class .landing__container::after {
         transform: rotate(360deg) translate(-1em) rotate(-360deg);
     }
 }
+
+/* Mobile styles */
+@media only screen and (max-width: 768px) { /* Adjust 768px if needed */
+    /* Make navbar more compact */
+
+    main {
+        padding-top: 20px;
+        margin-top: 10px;
+    }
+
+    .navbar__menu ul {
+        padding: 0.5em 0;
+    }
+
+    #navbar__list li {
+        margin: 5px;
+        padding: 5px;
+        font-size: 0.8em; /* Reduce font size */
+    }
+
+    /* Sticky Navbar */
+    .page__header {
+        position: sticky;
+        top: 0;
+    }
+
+    /* Adjust z-index to ensure it's above other content but below modals/popups if any */
+    .page__header {
+        z-index: 10;
+    }
+}
+
